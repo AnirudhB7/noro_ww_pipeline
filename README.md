@@ -33,14 +33,15 @@ This pairing enables dual typing of Norovirus.
 
 **Dry‑lab pipeline (this repo)**
 
-1. **QC**: fastp → Trim Galore (Q20, error=0.2; Nextera/Illumina adapters).
-2. **Merge**: BBMerge; record insert‑size histogram.
-3. **Right‑size select**: keep **570–580 nt** merged reads (junction amplicon).
-4. **QIIME 2 / VSEARCH path**: import (single‑end), **dereplicate**, **de novo 99% clustering**.
-5. **References**: download HUCAT, re‑header (add G/P labels), **extract BC region** by multiple primer sets, merge refs.
-6. **Train classifier** (Naive Bayes) on BC‑region refs + taxonomy; **test classifier** on sample reps.
-7. **Assign taxonomy** (G‑type, P‑type).
-8. **Relative abundance**: executed notebook summarizes genotype/P‑type composition across samples.
+1. **QC**: Quality check the reads
+2. **Merge**: Merge them as single end reads
+3. **Right‑size select**: Additional QC to check we have right size amplicons
+4. **Importing the reads** :Create a tab delimited file which has filepath for reads
+5. **dereplicate**: and do **de novo 99% clustering**.
+6. **References**: download Norovirus to create database, re‑header (add G/P labels).
+7. **Train classifier** and **test classifier** on sample reps.
+8. **Assign taxonomy** (G‑type, P‑type).
+9. **Relative abundance**: executed notebook summarizes genotype/P‑type composition across samples.
 
 ---
 ---
@@ -54,19 +55,15 @@ Wastewater → RT‑dPCR screening → 2‑step semi‑nested PCR (BC junction) 
 Downstream Analysis
 R1/R2 FASTQs
   ↓
-fastp 
+Quality Control
   ↓
-Trim Galore 
+Merge  
   ↓
-BBMerge 
-  ↓
-reformat.sh → keep 570–580 nt  
-  ↓
-QIIME 2 import (single‑end manifest)
+import reads 
   ↓
 VSEARCH dereplicate → VSEARCH de‑novo cluster @99%
   ↓
-Visualize (table.qzv, rep‑seqs.qzv)
+Visualize (table , representative seqs for each cluster )
   ↓
 refs: download → re‑header (add G/P labels) → extract BC (primer sets) → merge refs
   ↓
@@ -74,9 +71,9 @@ Train classifier (Naive Bayes) → classify‑sklearn
   ↓
 Taxonomy assigned (G‑type, P‑type)
   ↓
-Export: feature‑table.biom → feature‑table‑frequency.tsv  +  taxonomy.tsv
+Export: feature‑table → feature‑table‑frequency  +  taxonomy 
   ↓
-Notebook execution → (GI/GII; G/P types)
+Abundance calculation using python → (GI/GII; G/P types)
 
 
 
@@ -86,7 +83,7 @@ Notebook execution → (GI/GII; G/P types)
 ---
 
 
-## What we observed (pilot summary)
+## What we observed 
 
 * In **Genogroup I (GI)** samples, the most abundant variant was **GI.1 P\[1]**.
 * In **Genogroup II (GII)** samples, the most abundant variant was **GII.4 P\[39]**.
