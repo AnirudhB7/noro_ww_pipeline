@@ -25,13 +25,13 @@ This pairing enables dual typing of Norovirus.
 
 ## Our innovation
 
-**Wet‑lab input to this pipeline**
+**Sample Screening and Library Preparation**
 
 * **dPCR screening** of wastewater extracts.
 * **PCR** targeting the BC region (GI/GII assays).
 * **Illumina 2×300 bp** sequencing to allow full amplicon recovery.
 
-**Dry‑lab pipeline (this repo)**
+**Downstream Analysis**
 
 1. **QC**: Quality check the reads
 2. **Merge**: Merge them as single end reads
