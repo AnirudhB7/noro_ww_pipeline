@@ -1,0 +1,23 @@
+threads: 8
+adapters: nextera            # or: illumina
+trimgalore_error: 0.2
+trimgalore_quality: 20
+min_length: 50
+bbmerge_minoverlap: 12
+len_select_min: 570
+len_select_max: 580
+
+samples:
+  # <<< EDIT these paths for your own data >>>
+
+    R1: "data/R1.fastq.gz"
+    R2: "data/R2.fastq.gz"
+
+refs:
+  hucat_fasta: "refs/HUCAT_CAP_RDRP_DB.fasta"
+  new_headers_mapping: "refs/New_Accession_IDs.txt"
+  taxonomy_tsv: "refs/HUCAT_TAXONOMOY_UPDATED.txt"
+  primer_sets_yaml: "refs/primer_sets.yaml"
+
+analysis:
+  notebook: "notebooks/relative_abundance.ipynb"   # put your notebook here

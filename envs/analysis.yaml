@@ -1,0 +1,13 @@
+name: analysis-env
+channels: [conda-forge, defaults]
+dependencies:
+  - python=3.10
+  - jupyter
+  - nbconvert
+  - nbformat
+  - ipykernel
+  - pandas
+  - numpy
+  - matplotlib
+  - openpyxl
+  - scipy

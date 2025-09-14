@@ -1,0 +1,5 @@
+name: biom-env
+channels: [conda-forge, bioconda, defaults]
+dependencies:
+  - biom-format
+  - python=3.10

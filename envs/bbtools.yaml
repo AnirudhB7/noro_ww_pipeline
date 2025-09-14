@@ -1,0 +1,5 @@
+name: bbtools-env
+channels: [bioconda, conda-forge, defaults]
+dependencies:
+  - bbmap=39.06   # gives bbmerge.sh and reformat.sh
+  - pigz
