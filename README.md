@@ -48,10 +48,10 @@ This pairing enables dual typing of Norovirus.
 ## 📈 Pipeline at‑a‑glance (arrows)
 
 ```
-WET LAB
+Sample Screening and Library Preparation
 Wastewater → RT‑dPCR screening → 2‑step semi‑nested PCR (BC junction) → Illumina 2×300 → FASTQs
 
-DRY LAB 
+Downstream Analysis
 R1/R2 FASTQs
   ↓
 fastp 
